@@ -1,0 +1,27 @@
+name: Refresh container
+on:
+  schedule:
+    - cron: 0 0 */2 * *
+  # be able to start this action manually from a actions tab when needed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh-containers:
+    name: Refresh container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build container
+        run: |
+          podman build -t quay.io/jkonecny/samba-container:latest .
+
+      - name: Login to quay.io
+        run: podman login -u ${{ secrets.QUAY_USERNAME }} -p ${{ secrets.QUAY_PASSWORD }} quay.io
+
+      - name: Push container
+        run: podmna push quay.io/jkonecny/samba-container:latest
