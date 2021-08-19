@@ -24,4 +24,4 @@ jobs:
         run: podman login -u ${{ secrets.QUAY_USERNAME }} -p ${{ secrets.QUAY_PASSWORD }} quay.io
 
       - name: Push container
-        run: podmna push quay.io/jkonecny/samba-container:latest
+        run: podman push quay.io/jkonecny/samba-container:latest
