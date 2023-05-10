@@ -1,5 +1,5 @@
 FROM registry.fedoraproject.org/fedora:38
-LABEL maintainer=DragonLich@psmail.xyz
+LABEL maintainer=DragonLich@pacse.eu
 
 RUN set -ex; \
   dnf update -y; \
