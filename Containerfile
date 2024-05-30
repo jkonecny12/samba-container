@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:38
+FROM registry.fedoraproject.org/fedora:40
 LABEL maintainer=DragonLich@pacse.eu
 
 RUN set -ex; \
